@@ -1,6 +1,6 @@
 import express, { Request, Response } from 'express';
 import { ActivityModel, LeaderboardModel, TeamModel, UserModel, WorkoutModel } from './models';
-import { connectDatabase, mongoUri } from './database';
+import { connectDatabase, mongoUri } from './config/database';
 
 const app = express();
 app.use(express.json());

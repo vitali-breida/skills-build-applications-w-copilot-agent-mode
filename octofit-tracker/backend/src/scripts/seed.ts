@@ -1,4 +1,4 @@
-import { connectDatabase, mongoUri, mongoose } from '../database';
+import { connectDatabase, mongoUri, mongoose } from '../config/database';
 import { ActivityModel, LeaderboardModel, TeamModel, UserModel, WorkoutModel } from '../models';
 
 async function seed() {
