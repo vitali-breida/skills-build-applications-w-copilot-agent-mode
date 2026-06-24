@@ -5,6 +5,7 @@ import { ActivityModel, LeaderboardModel, TeamModel, UserModel, WorkoutModel } f
 const app = express();
 app.use(express.json());
 
+
 const port = Number(process.env.PORT ?? 8000);
 const codespaceName = process.env.CODESPACE_NAME;
 const baseUrl = codespaceName
