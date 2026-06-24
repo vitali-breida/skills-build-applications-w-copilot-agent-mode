@@ -1,11 +1,10 @@
 import express, { Request, Response } from 'express';
-import mongoose from 'mongoose';
 import { ActivityModel, LeaderboardModel, TeamModel, UserModel, WorkoutModel } from './models';
+import { connectDatabase, mongoUri } from './database';
 
 const app = express();
 app.use(express.json());
 
-const mongoUri = process.env.MONGODB_URI ?? 'mongodb://127.0.0.1:27017/octofit_db';
 const port = Number(process.env.PORT ?? 8000);
 const codespaceName = process.env.CODESPACE_NAME;
 const baseUrl = codespaceName
@@ -52,8 +51,7 @@ app.get('/', (_req: Request, res: Response) => {
   res.send('OctoFit Tracker API is running.');
 });
 
-mongoose
-  .connect(mongoUri)
+connectDatabase()
   .then(() => {
     console.log('Connected to MongoDB:', mongoUri);
     app.listen(port, () => {
